@@ -1,0 +1,42 @@
+[2025-02-10T22:07:57.473+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-02-10T22:07:57.494+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: web_to_snowflake.create_s3_stage manual__2025-02-10T22:07:50.506711+00:00 [queued]>
+[2025-02-10T22:07:57.504+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: web_to_snowflake.create_s3_stage manual__2025-02-10T22:07:50.506711+00:00 [queued]>
+[2025-02-10T22:07:57.506+0000] {taskinstance.py:2866} INFO - Starting attempt 1 of 2
+[2025-02-10T22:07:57.523+0000] {taskinstance.py:2889} INFO - Executing <Task(SnowflakeOperator): create_s3_stage> on 2025-02-10 22:07:50.506711+00:00
+[2025-02-10T22:07:57.534+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70: DeprecationWarning: This process (pid=5727) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2025-02-10T22:07:57.536+0000] {standard_task_runner.py:72} INFO - Started process 5729 to run task
+[2025-02-10T22:07:57.537+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'web_to_snowflake', 'create_s3_stage', 'manual__2025-02-10T22:07:50.506711+00:00', '--job-id', '50', '--raw', '--subdir', 'DAGS_FOLDER/web_to_snowflake.py', '--cfg-path', '/tmp/tmpvt1mot1g']
+[2025-02-10T22:07:57.540+0000] {standard_task_runner.py:105} INFO - Job 50: Subtask create_s3_stage
+[2025-02-10T22:07:57.607+0000] {task_command.py:467} INFO - Running <TaskInstance: web_to_snowflake.create_s3_stage manual__2025-02-10T22:07:50.506711+00:00 [running]> on host 0370ed89eba8
+[2025-02-10T22:07:57.728+0000] {taskinstance.py:3132} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='web_to_snowflake' AIRFLOW_CTX_TASK_ID='create_s3_stage' AIRFLOW_CTX_EXECUTION_DATE='2025-02-10T22:07:50.506711+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-02-10T22:07:50.506711+00:00'
+[2025-02-10T22:07:57.731+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-02-10T22:07:57.749+0000] {sql.py:278} INFO - Executing: 
+    CREATE STAGE IF NOT EXISTS my_s3_stage
+    URL='s3://aimeet/weather/raw/'
+    CREDENTIALS=(AWS_KEY_ID='AKIA47CRWJS4AWXARWZI'
+                AWS_SECRET_KEY='***');
+    
+[2025-02-10T22:07:57.760+0000] {base.py:84} INFO - Retrieving connection 'snowflake_default'
+[2025-02-10T22:07:57.773+0000] {base.py:84} INFO - Retrieving connection 'snowflake_default'
+[2025-02-10T22:07:57.775+0000] {connection.py:414} INFO - Snowflake Connector for Python Version: 3.12.4, Python Version: 3.12.8, Platform: Linux-5.15.167.4-microsoft-standard-WSL2-x86_64-with-glibc2.36
+[2025-02-10T22:07:57.776+0000] {connection.py:1197} INFO - Connecting to GLOBAL Snowflake domain
+[2025-02-10T22:07:57.777+0000] {connection.py:1278} INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+[2025-02-10T22:07:58.639+0000] {cursor.py:1166} INFO - Number of results in first chunk: 1
+[2025-02-10T22:07:58.641+0000] {sql.py:553} INFO - Running statement: CREATE STAGE IF NOT EXISTS my_s3_stage
+    URL='s3://aimeet/weather/raw/'
+    CREDENTIALS=(AWS_KEY_ID='AKIA47CRWJS4AWXARWZI'
+                AWS_SECRET_KEY='***');, parameters: None
+[2025-02-10T22:07:59.066+0000] {cursor.py:1166} INFO - Number of results in first chunk: 1
+[2025-02-10T22:07:59.068+0000] {sql.py:562} INFO - Rows affected: 1
+[2025-02-10T22:07:59.069+0000] {snowflake.py:447} INFO - Rows affected: 1
+[2025-02-10T22:07:59.071+0000] {snowflake.py:448} INFO - Snowflake query id: 01ba4e58-3202-c23c-0005-f71200027026
+[2025-02-10T22:07:59.200+0000] {cursor.py:1166} INFO - Number of results in first chunk: 1
+[2025-02-10T22:07:59.203+0000] {connection.py:789} INFO - closed
+[2025-02-10T22:07:59.265+0000] {connection.py:795} INFO - No async queries seem to be running, deleting session
+[2025-02-10T22:07:59.384+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-02-10T22:07:59.385+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=web_to_snowflake, task_id=create_s3_stage, run_id=manual__2025-02-10T22:07:50.506711+00:00, execution_date=20250210T220750, start_date=20250210T220757, end_date=20250210T220759
+[2025-02-10T22:07:59.449+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-02-10T22:07:59.494+0000] {taskinstance.py:3895} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-02-10T22:07:59.500+0000] {local_task_job_runner.py:245} INFO - ::endgroup::
