@@ -3,3 +3,9 @@ apache-airflow-providers-amazon
 beautifulsoup4
 pandas
 requests
+pandas
+numpy
+selenium
+webdriver-manager
+boto3
+requests

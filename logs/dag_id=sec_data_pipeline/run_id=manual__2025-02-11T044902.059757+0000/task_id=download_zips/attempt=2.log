@@ -1,0 +1,20 @@
+[2025-02-11T04:54:13.830+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-02-11T04:54:13.853+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: sec_data_pipeline.download_zips manual__2025-02-11T04:49:02.059757+00:00 [queued]>
+[2025-02-11T04:54:13.864+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: sec_data_pipeline.download_zips manual__2025-02-11T04:49:02.059757+00:00 [queued]>
+[2025-02-11T04:54:13.866+0000] {taskinstance.py:2866} INFO - Starting attempt 2 of 2
+[2025-02-11T04:54:13.884+0000] {taskinstance.py:2889} INFO - Executing <Task(PythonOperator): download_zips> on 2025-02-11 04:49:02.059757+00:00
+[2025-02-11T04:54:13.895+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70: DeprecationWarning: This process (pid=240) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2025-02-11T04:54:13.898+0000] {standard_task_runner.py:72} INFO - Started process 242 to run task
+[2025-02-11T04:54:13.899+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'sec_data_pipeline', 'download_zips', 'manual__2025-02-11T04:49:02.059757+00:00', '--job-id', '15', '--raw', '--subdir', 'DAGS_FOLDER/zip.py', '--cfg-path', '/tmp/tmp6acca6o5']
+[2025-02-11T04:54:13.904+0000] {standard_task_runner.py:105} INFO - Job 15: Subtask download_zips
+[2025-02-11T04:54:13.965+0000] {task_command.py:467} INFO - Running <TaskInstance: sec_data_pipeline.download_zips manual__2025-02-11T04:49:02.059757+00:00 [running]> on host 7505875b4e7c
+[2025-02-11T04:54:14.079+0000] {taskinstance.py:3132} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='sec_data_pipeline' AIRFLOW_CTX_TASK_ID='download_zips' AIRFLOW_CTX_EXECUTION_DATE='2025-02-11T04:49:02.059757+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-02-11T04:49:02.059757+00:00'
+[2025-02-11T04:54:14.082+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-02-11T04:56:25.952+0000] {python.py:240} INFO - Done. Returned value was: /opt/***/tmp/sec_zips
+[2025-02-11T04:56:25.988+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-02-11T04:56:25.989+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=sec_data_pipeline, task_id=download_zips, run_id=manual__2025-02-11T04:49:02.059757+00:00, execution_date=20250211T044902, start_date=20250211T045413, end_date=20250211T045625
+[2025-02-11T04:56:26.034+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-02-11T04:56:26.062+0000] {taskinstance.py:3895} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-02-11T04:56:26.066+0000] {local_task_job_runner.py:245} INFO - ::endgroup::
