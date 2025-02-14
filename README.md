@@ -6,8 +6,7 @@ This repository contains the end-to-end solution for building a master financial
 
 Below is the workflow diagram for the AI Application:
 
-![AI Application Workflow](https://github.com/khavnekar-y/master-financial-database/financial_data_pipeline_on_gcp.png)
-
+![AI Application Workflow](../financial_data_pipeline_on_gcp.png)
 ### Diagram Description:
 1. **User**: The end-user interacts with the application via the Streamlit frontend.
 2. **Streamlit App**: The frontend built using Streamlit.
