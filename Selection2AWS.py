@@ -21,8 +21,8 @@ DOWNLOAD_FOLDER = os.path.abspath("downloads")  # Ensure absolute path for downl
 EXTRACTED_FOLDER = os.path.abspath("extracted")  # Folder for extracted contents
 selenium_host = "http://localhost:4444"
 
-AWS_SERVER_PUBLIC_KEY = "AKIA54WIGFLOETS7RT4W"
-AWS_SECRET_KEY = "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"
+AWS_SERVER_PUBLIC_KEY = ""
+AWS_SECRET_KEY = ""
 AWS_REGION = "us-east-2"  
 
 # Initialize S3 client
