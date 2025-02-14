@@ -16,8 +16,8 @@ S3_BUCKET_NAME = "financial-statements-database-bucket "  # Replace with your ac
 S3_FOLDER = "sec-zips/"  # Folder inside the S3 bucket (optional)
 DOWNLOAD_FOLDER = "downloads"  # Local folder to store ZIPs before upload
 
-AWS_SERVER_PUBLIC_KEY='AKIA54WIGFLOETS7RT4W'
-AWS_SECRET_KEY = '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'
+AWS_SERVER_PUBLIC_KEY=''
+AWS_SECRET_KEY = ''
 AWS_REGION = 'us-east-2'
 
 # Initialize S3 client
