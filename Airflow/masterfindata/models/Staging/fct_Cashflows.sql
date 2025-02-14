@@ -25,10 +25,10 @@ WITH source AS (
  
 final AS (
     SELECT DISTINCT
-        {{ dbt_utils.generate_surrogate_key(['dim_company.COMPANY_SK','dim_filings.FILINGS_SK','src.FiledDate','src.ADSH', 'src.VALUE']) }} AS COMP_FCT_SK,  -- Fact Table SK
+        {{ dbt_utils.generate_surrogate_key(['dim_company.COMPANY_SK','dim_filings.FILINGS_SK','dim_date.date_sk','src.ADSH', 'src.VALUE']) }} AS COMP_FCT_SK,  -- Fact Table SK
         dim_company.COMPANY_SK,
         dim_filings.FILINGS_SK,
-        src.FiledDate,
+        dim_date.date_sk,
         src.VALUE,
         src.ADSH AS ADSH_KEY,
         'DBT_USER' AS Created_By,  -- Placeholder for tracking
@@ -45,4 +45,16 @@ final AS (
         ON TRY_TO_DATE(src.FiledDate::STRING, 'YYYY-MM-DD') = dim_date.Full_DT  -- Explicitly using `src.FiledDate`
 )
  
-SELECT * FROM final
+SELECT ROUND(SUM(fct.VALUE), 2) AS FCT_VALUE, 
+       dc.COMPANY_NAME, 
+       df.FILEDDATE, 
+       df.STATEMENTTYPE,
+       df.TAG, 
+       df.UNITOFMEASURE, 
+       df.VERSION
+FROM final fct
+INNER JOIN {{ ref('dim_company') }} dc 
+    ON fct.COMPANY_SK = dc.COMPANY_SK
+INNER JOIN {{ ref('dim_filings') }} df 
+    ON fct.FILINGS_SK = df.FILINGS_SK
+GROUP BY dc.COMPANY_NAME, df.FILEDDATE, df.STATEMENTTYPE, df.TAG, df.UNITOFMEASURE, df.VERSION
